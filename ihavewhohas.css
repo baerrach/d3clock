@@ -1,28 +1,44 @@
+/*
 .i-have-who-has{
    border: solid 1px black;
    padding: 2px;
    margin: 0 10px 0 0;
    position: relative;
+   min-height: 250px;
+}
+    */
+.i-have-who-has {
+    clear:both;
 }
 .ihave:before {
   content: "I have";
-  position: relative;
-  top: 0px;
-  left: 0px;
+}
+.ihave {
+  float: right;
+  text-align: center;
+  max-width: 250px;
+  width: 100%;
 }
 .whohas:before {
   content: "Who has ";
-  position: relative;
-  bottom: 0px;
-  left: 0px;
+}
+.whohas {
+  float: right;
+  text-align: center;
+  max-width: 250px;
+  width: 100%;
+  clear: right;
+  margin-bottom: 40px;
 } 
 .whohas:after {
   content: "?";
 }
 .mascot {
   content: url(https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG);
+  float: left;
   max-width: 250px;
-  width: 50%;
+  width: 250px;
+  margin-top: 30px;
 }
 
 p, li {
@@ -31,10 +47,11 @@ p, li {
 }
 
 body {
-    max-width: 1250px;
-    min-width: 520px;
+    margin:0;
+    padding:0;
+    max-width: 500px;
     text-rendering: optimizelegibility;
-    width: 100%;
+    width: 50%;
     font-family: "Californian FB","Lucida Grande";
 }
 
