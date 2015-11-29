@@ -1,0 +1,43 @@
+.i-have-who-has{
+   border: solid 1px black;
+   padding: 2px;
+   margin: 0 10px 0 0;
+   position: relative;
+}
+.ihave:before {
+  content: "I have";
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+.whohas:before {
+  content: "Who has ";
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+} 
+.whohas:after {
+  content: "?";
+}
+.mascot {
+  content: url(https://upload.wikimedia.org/wikipedia/en/e/ed/Nyan_cat_250px_frame.PNG);
+  max-width: 250px;
+  width: 50%;
+}
+
+p, li {
+    line-height: 135%;
+    margin-bottom: 1em;
+}
+
+body {
+    max-width: 1250px;
+    min-width: 520px;
+    text-rendering: optimizelegibility;
+    width: 100%;
+    font-family: "Californian FB","Lucida Grande";
+}
+
+body > * {
+    font-size: 150%;
+}
