@@ -20,8 +20,8 @@ var d3clock = function(config) {
   formatSecond = d3.time.format("%S");
   formatMinute = d3.time.format("%M");
   formatHour = d3.time.format("%H");
-  width = config.width ? config.width : 1000;
-  height = width/2;
+  width = config.width || 1000;
+  height = config.height || width/2;
 
   var outerRadius = 0.8 * height/2;
   var offSetX = height/2;
@@ -245,7 +245,7 @@ var d3clock = function(config) {
             return (i%5) ? '#999' : 'black';
           },
           tickText: {
-            fontSize: (width * 14 / 500),
+            fontSize: 14,
             fontFamily:'Helvetica, Arial, sans-serif',
             fn: function(i){
               return ((i%5) ? '' : (i/5 > 0) ? i/5: 12);
@@ -260,7 +260,7 @@ var d3clock = function(config) {
             } else if (d.unit === "minutes") {
               return this.tickUnit*2;
             } else if (d.unit === "seconds") {
-              return this.tickUnit;
+//                return this.tickUnit;
             }
           },
           clockHandHeight: function(d){
@@ -269,7 +269,7 @@ var d3clock = function(config) {
             } else if (d.unit === "minutes") {
               return outerRadius - (this.secondsRing.r*3 + this.tickUnit*4);
             } else if (d.unit === "seconds") {
-              return (outerRadius - this.tickUnit*4);
+//               return (outerRadius - this.tickUnit*4);
             }
           },
           clockHandx: function(d) {
@@ -278,7 +278,7 @@ var d3clock = function(config) {
             } else if (d.unit==="minutes"){
               return -this.tickUnit*2/2;
             } else if (d.unit==="seconds") {
-              return -this.tickUnit/2;
+//              return -this.tickUnit/2;
             }
           },
           clockHandy: function(d) {
@@ -287,7 +287,7 @@ var d3clock = function(config) {
             } else if (d.unit==="minutes"){
               return -outerRadius + this.secondsRing.r*3 + this.tickUnit*4;
             } else if (d.unit==="seconds") {
-              return -outerRadius + this.secondsRing.r*3 + this.tickUnit*4 ;
+//              return -outerRadius + this.secondsRing.r*3 + this.tickUnit*4 ;
             }
           },
           clockHandFill: function(d){
@@ -296,7 +296,7 @@ var d3clock = function(config) {
             } else if (d.unit==="minutes") {
               return "#333";
             } else {
-              return "#666";
+ //             return "#666";
             }
           },
           clockHandAdditional: function(clockHand){
@@ -479,6 +479,7 @@ var d3clock = function(config) {
         return faceObj.clockHandHeight(d);
       });
 
+/*
      //create the circle of the seconds hand
       clockGroup.append("svg:circle")
           .attr("r", faceObj.secondsRing.r)
@@ -490,10 +491,11 @@ var d3clock = function(config) {
           .attr("r", faceObj.secondsInnermostRing.r)
           .attr("fill", faceObj.secondsInnermostRing.fill)
           .attr("class", "clock innermostcircle");
-
+*/
     } 
 
-    clockHand.transition().duration(1000).ease(faceObj.easing).attr("transform", function(d,i) {
+
+    clockHand.attr("transform", function(d,i) {
     if (d.unit==="hours"){
         return "rotate("+d.numeric%12 * 30+")";
       } else {
